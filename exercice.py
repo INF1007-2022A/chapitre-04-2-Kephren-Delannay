@@ -19,20 +19,19 @@ def get_random_sentence(animals, adjectives, fruits):
 	return (f"Aujourd'hui, j'ai vu un {animal} s'emparer d'un panier {adjective} plein de {fruit}")
 
 def encrypt(text, shift):
-	# makes the sentence lower to ease the calculations
-	lower_case_text = text.lower()
 	result = ""
 	# loop through the sentence
-	for char in lower_case_text:
-		# get the ASCII code
-		n = ord(char)
-		if 97 <= n <= 122:
-			# TODO: loop when n >= 123
-			result += chr(n + shift)
+	for char in text:
+		if char.isalpha():
+			index = ord(char.upper()) - ord('A')
+			new_index = (index + shift) % 26
+			result += chr(new_index + ord('A'))
+		else:
+			result += char
 	return result
 
 def decrypt(encrypted_text, shift):
-	return ""
+	return encrypt(encrypted_text, -shift)
 
 
 if __name__ == "__main__":
