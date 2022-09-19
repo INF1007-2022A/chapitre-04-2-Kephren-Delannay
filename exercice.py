@@ -10,7 +10,7 @@ def get_first_part_of_name(name):
 	first_name = str.lower(first_name)
 	# makes first letter uppercase
 	first_name = first_name.replace(first_name[0], first_name[0].upper())
-	return 'Bonjour ' + first_name
+	return 'Bonjour, ' + first_name
 
 def get_random_sentence(animals, adjectives, fruits):
 	animal = random.choice(animals)
